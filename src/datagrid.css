@@ -1,0 +1,437 @@
+/* TODO
+    Need to refactor this to be component specific
+ */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1;
+    font-size: 16px;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.data-grid div.content .table {
+    text-align: left;
+    width: 100%;
+}
+
+.data-grid div.content .table table {
+    width: 100%;
+}
+
+.data-grid div.content .table .Cname {
+    width: 28%;
+}
+
+.data-grid div.content .table .Broker {
+    width: 20%;
+}
+
+.data-grid div.content .table .Ctype {
+    width: 15%;
+}
+
+.data-grid div.content .table .Coname {
+    width: 26%;
+}
+
+.data-grid div.content .table table th, .data-grid div.content .table table td {
+    border: 1px solid #adadad;
+    padding: 7px 12px;
+}
+
+.data-grid div.content .table table tr.total-record-row {
+    margin-left: 4px;
+}
+.total-record-row {
+    margin-left: 10px;
+    margin-top: 4px;
+    margin-right: 10px;
+}
+
+td {
+    font-size: 13px;
+}
+
+.data-grid div.content .table table tr.table-header, .data-grid div.content .table table tr.table-header:hover {
+    background: #54636b;
+    color: #fff;
+}
+
+.data-grid div.content .table table tr {
+    cursor: pointer;
+}
+
+.data-grid div.content .table table tr:hover {
+    background: #f4f4f4;
+}
+
+.no-data-available {
+    width: auto;
+    background-color: #ff00004d;
+    height: 25px;
+    text-align: center;
+}
+
+.search-input {
+    margin-left: 5px;
+    padding: 5px;
+    color: #66727c;
+    border: none;
+    width: 100px;
+    outline: none;
+    border-radius: 6px;
+    background-color: #effcff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.search-input-column {
+    padding: 5px;
+    color: #66727c;
+    border: none;
+    width: 60%;
+    outline: none;
+    border-radius: 6px;
+    background-color: #e7f3f6;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.search {
+    position: relative;
+    width: 18px;
+    padding: 4px 0;
+    right: 23px;
+    text-align: center;
+    display: inline-table;
+    transition: transform .2s;
+}
+
+.search:hover {
+    transform: scale(1.2);
+}
+
+.search__circle {
+    width: 10px;
+    height: 10px;
+    border: 2px solid #333;
+    border-radius: 100px;
+}
+
+.search__rectangle {
+    position: absolute;
+    right: 4px;
+    bottom: 6px;
+    width: 7px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border: 1px solid #333;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+.sort-order-up .sort-order-down {
+    display: flex;
+    height: 5px;
+}
+.table-footer-wrapper {
+    background: rgb(216, 209, 209);
+    border: 1px solid #adadad;
+    padding: 7px 12px;
+}
+
+.table-footer-data {
+    float: right;
+    border: none;
+    padding: 0px;
+}
+.pagination-wrapper {
+    display: flex;
+    verticalAlign: -webkit-baseline-middle;
+    padding: 2px;
+    margin-left: 15px;
+}
+.pagination-info {
+    fontSize: 13px;
+    margin-top: 11px;
+}
+body{
+    font-family: "Times New Roman";
+}
+.page-number{
+    color: #085d66;
+    font-size: 16px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+.page-number-arrow{
+    background-color: rgba(198, 230, 255, 0.66);
+    border-color: rgba(213, 216, 218, 0.66);
+    color: #085d66;
+    font-size: 10px;
+    margin: 1px 1px;
+    border-radius: 8px;
+}
+.page-number-arrow:hover{
+    background-color: #085d66;
+    font-size: 10px;
+    border: 1.8px solid #085d66;
+    color: rgba(255,255,255,255);
+    margin: 1px 1px;
+    border-radius: 8px;
+}
+.page-number-arrow-disabled{
+    font-size: 11px;
+    border: 1.5px solid #adaeb2;
+    margin: 1px 1px;
+    border-radius: 8px;
+}
+.arrowIcon{
+    margin: 1px 1px;
+}
+.render-table {
+    margin-top: 8px;
+    padding: 0px;
+    border: 1px solid #085d66;
+    border-left: 0px ;
+    border-right: 1px solid #085d66;
+    border-bottom: 0px;
+    width: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: auto;
+}
+.table-body-row{
+    font-size: 15px;
+    background-color: rgba(188, 221, 232, 0.66);
+}
+.table-body-row:nth-child(2n+1) {
+    font-size: 15px;
+    background-color: rgba(215, 234, 235, 0.53);
+}
+.table-row {
+    display: flex;
+    width: 100%;
+}
+.row {
+    overflow: hidden;
+    width: 100%;
+    border-right: 0px;
+    border-top: 0px;
+    border-bottom: 1px solid #086770;
+    border-left: 1px solid #086770;
+    color: #085d66;
+}
+.table-cell{
+    font-size: 14px;
+    padding: 4px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+.table-heading{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size:16px ;
+    padding: 6px;
+    width: 100%;
+    color: rgba(255, 255, 255, 255);
+}
+
+.table-head{
+    display: flex;
+    width: 100%;
+}
+.table-footer{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2px;
+}
+.table-footer-row{
+    float: right;
+    margin-top: 2px;
+    margin-right: 20px;
+}
+.table-footer-cell{
+    margin-right: 5px;
+    font-size: 14px;
+    border: 1px solid #086770;
+    padding: 8px;
+    text-align: right;
+    color: rgba(255, 255, 255, 255);
+    background-color: rgba(12, 81, 120, 0.66);
+}
+.search-bar{
+    margin-left: 2px;
+    padding: 2px;
+    margin-right: 2px;
+}
+.filter-column{
+    margin-right: 9px;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    margin-left: 5px;
+    display: flex;
+}
+.header-column {
+    border: 1px solid #086770;
+    border-right: 0px;
+    border-bottom: 1px solid #086770;
+    border-top:0px;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba(12, 81, 120, 0.66);
+}
+.page-number-arrow-for-margin{
+    margin-top: 9px;
+}
+.search-input-bar {
+    padding: 5px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.grid-export{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.link{
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-right: 4px;
+    font-size: 12px;
+    color: #085d66;
+    padding: 4px 4px 0px;
+    text-decoration: none;
+    border: 2px solid #96b3b659;
+    outline: medium none;
+    border-radius: 6px;
+    background-color: rgba(65, 67, 64, 0.15);
+    box-shadow: 1px 1px 2px #b0b0b0;
+    background: linear-gradient(rgba(193, 200, 230, 0.26), rgba(101, 135, 149, 0.36));
+}
+.link:active {
+    background-color: rgba(65, 67, 64, 0.15);
+    border: 1px solid #085d6659;
+    color: #085d66;
+    box-shadow:none;
+    padding: 4px 4px 0px;
+    border-radius: 6px;
+    display:flex;
+    justify-content: flex-end;
+    margin-top: 4px;
+    margin-bottom: 3px;
+    margin-right: 4px;
+    font-size: 12px;
+    text-decoration: none;
+    outline: medium none;
+    transform: translateY(1px) translateX(1px);
+}
+.clearFilterButton{
+    border-radius: 6px;
+    background-color: rgba(65, 67, 64, 0.15);
+    border: 1px solid #085d6659;
+    color: #085d66;
+    margin-right: 8px;
+    padding: 2px 5px;
+    font-size: 12px;
+    margin-top: 4px;
+    box-shadow: 1px 1px 2px #b0b0b0;
+    background: linear-gradient(rgba(193, 200, 230, 0.26), rgba(101, 135, 149, 0.36));
+}
+.wrapper-pagination-search{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.render-message-method {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: rgba(215, 234, 235, 0.53);
+    color: #fff;
+    z-index: 99;
+}
+.render-message {
+    padding: 20px;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid #085d66;
+    border-right: 0px;
+    border-top: 0px;
+    color: #085d66;
+}
+.disable-export-link {
+    pointer-events: none;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-right: 4px;
+    font-size: 12px;
+    padding: 4px 4px 0px;
+    text-decoration: none;
+    border: 2px solid #a9a9a959;
+    outline: medium none;
+    border-radius: 6px;
+    color: #9e9d9f;
+    background-color: #e7e7e7;
+}
+.pagination-text {
+    padding:0 3px;
+}
+
