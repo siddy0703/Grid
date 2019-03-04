@@ -3654,6 +3654,7 @@ export const tableMetaData = () => ({
   drawerPosition: 'top',
   includeAllInGlobalFilter: false,
   includeGlobalFilter: true,
+  exportFileName: `FileName-${new Date()}.csv`, // For Demo
 });
 
 export const getStyles = () => ({

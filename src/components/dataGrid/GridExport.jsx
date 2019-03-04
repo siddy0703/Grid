@@ -20,7 +20,12 @@ class GridExport extends Component {
       ({ label: item.label, key: item.key, disable: item.disable }),
     );
     return (
-      <CSVLink headers={header} data={this.props.currentData} title="Export" className={this.renderCSVLinkClassName()}>
+      <CSVLink
+        filename={this.props.currentMetaData.exportFileName}
+        headers={header}
+        data={this.props.currentData}
+        title="Export"
+        className={this.renderCSVLinkClassName()}>
         <IoMdDownload />
       </CSVLink>
     );
