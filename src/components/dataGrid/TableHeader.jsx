@@ -82,6 +82,7 @@ class TableHeader extends Component {
           getSortIcon={this.getSortIcon}
           onFilterChange={this.props.onFilterChange}
           getFilterValue={this.getFilterValue}
+          onResizeColumnWidth={this.props.onResizeColumnWidth}
         />
       ));
   }
