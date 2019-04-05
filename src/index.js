@@ -19,14 +19,16 @@ const checkValidation = (metaData) => {
   }
 };
 const formattedData = (data, columnsConfig) => {
-  const allkeys = columnsConfig.map((columnConfig) => {
-    const obj = { key: columnConfig.key, type: columnConfig.type };
+  const allKeys = columnsConfig.map((columnConfig) => {
+    const obj = { key: columnConfig.key, type: columnConfig.type, emptyCells: columnConfig.emptyCells};
     return obj;
   });
   return data.map((dataObj) => {
     const dataObjCopy = cloneDeep(dataObj);
-    allkeys.forEach((obj) => {
-      if (dataObjCopy[obj.key] === undefined || dataObjCopy[obj.key] === null) {
+    allKeys.forEach((obj) => {
+      if ((dataObjCopy[obj.key] === undefined || dataObjCopy[obj.key] === null || dataObjCopy[obj.key] === '') && obj.emptyCells) {
+        dataObjCopy[obj.key] = obj.emptyCells;
+      } else if (dataObjCopy[obj.key] === undefined || dataObjCopy[obj.key] === null) {
         dataObjCopy[obj.key] = '';
       }
       if (obj.type === 'Number' && dataObjCopy[obj.key].trim().length !== 0 && !isEmpty(dataObjCopy[obj.key]) && !isNaN(dataObjCopy[obj.key])) {
