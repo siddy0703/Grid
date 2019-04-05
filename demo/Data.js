@@ -3609,22 +3609,26 @@ export const tableMetaData = () => ({
       'label': 'First Name',
       'key': 'firstName',
       'type': 'string',
+      'emptyCells': '',
     },
     {
       'label': 'Last Name',
       'key': 'lastName',
       'type': 'string',
+      'emptyCells': '',
     },
     {
       'label': 'Company',
       'key': 'company',
       'type': 'string',
+      'emptyCells': '',
     },
     {
       'label': 'Employed',
       'key': 'employed',
       'type': 'string',
       'disableFilter': true,
+      'emptyCells': '',
     },
     {
       'label': 'Edit Information',

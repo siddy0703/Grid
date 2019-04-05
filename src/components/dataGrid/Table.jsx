@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import orderBy from 'lodash/orderBy';
 import isEqual from 'lodash/isEqual';
 import isEmpty from 'lodash/isEmpty';
 
@@ -9,7 +8,7 @@ import TableHeader from './TableHeader';
 import TableBody from './TableBody';
 import TableDrawer from './TableDrawer';
 import TableFooter from './TableFooter';
-import { paginatedData, getNoOfPages } from '../.././utils/CommonUtils';
+import { paginatedData, getNoOfPages, getSortedData } from '../.././utils/CommonUtils';
 import '../../datagrid.css';
 import CustomLoader from './CustomLoader';
 /**
@@ -35,6 +34,8 @@ class Table extends Component {
       sort: {
         sortOrder: '',
         columnName: '',
+        columnType: '',
+        emptyCells: '',
       },
     };
     this.onSearch = this.onSearch.bind(this);
@@ -51,10 +52,18 @@ class Table extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    const { columnName, columnType, sortOrder, emptyCells } = this.state.sort;
     if (!isEqual(nextProps.data, this.props.data)
       || !isEqual(nextProps.metaData, this.props.metaData)) {
       let temporaryData = filterData(this.state.appliedFilter, nextProps.data);
-      temporaryData = orderBy(temporaryData, this.state.sort.columnName, this.state.sort.sortOrder);
+      temporaryData = getSortedData(
+        {
+          columnName,
+          columnType,
+          sortOrder,
+          data: temporaryData,
+          emptyCells,
+        });
       this.setState({
         originalData: nextProps.data,
         currentData: temporaryData,
@@ -65,12 +74,14 @@ class Table extends Component {
     }
   }
 
-  setSortObject(columnName, sortOrder) {
+  setSortObject(columnName, sortOrder, columnType, emptyCells) {
     this.setState({
       sort: {
         ...this.state.sort,
         columnName,
         sortOrder,
+        columnType,
+        emptyCells,
       },
     });
   }
@@ -131,18 +142,27 @@ class Table extends Component {
       sort: {
         sortOrder: '',
         columnName: '',
+        columnType: '',
+        emptyCells: '',
       },
     });
   }
 
   onFilterChange(inputValue) {
+    const { columnName, columnType, sortOrder, emptyCells } = this.state.sort;
     let { appliedFilter } = this.state;
     appliedFilter = {
       ...appliedFilter,
       [inputValue.selectedColumn]: inputValue.searchString,
     };
-    const temporaryData
-      = orderBy(this.state.originalData, this.state.sort.columnName, this.state.sort.sortOrder);
+    const temporaryData = getSortedData(
+      {
+        columnName,
+        columnType,
+        sortOrder,
+        data: this.state.originalData,
+        emptyCells,
+      });
     this.setState({
       appliedFilter,
       currentData: filterData(appliedFilter, temporaryData),
@@ -158,19 +178,35 @@ class Table extends Component {
     });
   }
 
-  onSort(columnId) {
+  onSort(columnId, columnType, emptyCells) {
+    // If current sort order is ascending then assign next sort order to descending
     if (this.state.sort.sortOrder === 'asc') {
-      const sortedData = orderBy(this.state.currentData, [columnId], ['desc']);
+      const sortedData = getSortedData(
+        {
+          columnName: columnId,
+          columnType,
+          sortOrder: 'desc',
+          data: this.state.currentData,
+          emptyCells,
+        });
       this.setState({
         currentData: sortedData,
-        sort: { ...this.state.sort, sortOrder: 'desc' },
+        sort: { ...this.state.sort, sortOrder: 'desc', columnType, emptyCells },
       });
 
     } else {
-      const sortedData = orderBy(this.state.currentData, [columnId], ['asc']);
+      // If current sort order is descending then assign next sort order to ascending
+      const sortedData = getSortedData(
+        {
+          columnName: columnId,
+          columnType,
+          sortOrder: 'asc',
+          data: this.state.currentData,
+          emptyCells,
+        });
       this.setState({
         currentData: sortedData,
-        sort: { ...this.state.sort, sortOrder: 'asc' },
+        sort: { ...this.state.sort, sortOrder: 'asc', columnType, emptyCells },
       });
     }
   }
