@@ -116,29 +116,27 @@ Information of features from 'simple-react-data-grid':
  data:- The array which contains column information.
         It contains array of objects of columns.
         Object represents the information of each row.
-       Object properties example:-
-         'firstName': key of that particular column in which cell to represent that information
+        Object properties example:-
+         'firstName': key of that particular column.
          'Roseann': The information which is represented in that cell.
- metaData:- metaData object contained information form representation of 'simple-react-data. It is an object.
-           headerConfig: It is an array of objects of each column representation information. That objects contained multiple properties.
-              That properties are:
-                 'label' : It represents the label of a particular column header.
-                 'key'   : It represents the key of that particular column which is used for mapping row data.
-                 'type'  :  It represents the which type of data will be present in that column. It should be 'string' or 'Number'.   
-                 'emptyCells': It represents the empty cell value. If data is not present in that particular cell of the particular column so that which value present in that cell.  
-                 'disableFilter': It represents the column header of that particular column will contain column filter or not.
-                 'excludeFromExport': It represents that particular column excludes from CSV export or not. 
+ metaData:- metaData object contains information form representation of 'simple-react-data. It is an object.
+		headerConfig: It is an array of objects of each column representation information.
+			Objects contains multiple properties listed below:
+                 'label': It represents the label of a particular column header.
+                 'key': It represents the key of that particular column which is used for mapping row data.
+                 'type': It represents the type of data to be present in that column. It should be 'string' or 'Number'.   
+                 'emptyCells': It represents the empty cell value. If data is not available in that particular cell of the column, the default value given for emptyCells will be pre-populated.  
+                 'disableFilter': Used to disable the filter for a particular column.
+                 'excludeFromExport': Will decide if a particular column should be removed from csv or not.
           topDrawer: This object represents the information of which feature will present in the top drawer.
           bottomDrawer: This object represents the information of which feature will present in the bottom drawer.
-          topDrawer and bottomDrawer contained some properties that are:
-                 'pagination': It should be boolean and it represents the drawer contained pagination or not.
-                 'globalSearch': It should be boolean and it represents the drawer contained globalSearch or not. 
-                 'clearButton' : It should be boolean and it represents the drawer contained clear or not which reset all changes. 
-                 'exportButton': It should be boolean and it represents the drawer contained CSV file export button or not.
-                                 Which export grid data in CSV file format.    
-                 'totalRecords': It should be boolean and it represents the drawer contained totalRecords or not.
-                                 Which represent the count of total records currently present in the grid.
-          Some other properties present in metadata object that are:
+          topDrawer and bottomDrawer contains some properties listed below:
+                 'pagination': It should be boolean & represent pagination is enabled or disabled.
+                 'globalSearch': It should be boolean & represent globalSearch is enabled or disabled. 
+                 'clearButton': It should be boolean & represent clearButton is enabled or disabled. 
+                 'exportButton': It should be boolean and its functionality is to export the grid data into CSV file, represent exportButton is enabled or disabled.    
+                 'totalRecords': It should be boolean & represent totalRecords is enabled or disabled.
+          Properties present in metadata object are listed below:
                  enableRowSelection: It should be boolean and it represents the column header will contain all checked button or not.
                                      Which select all row.
                  enableAllRowSelection: It should be boolean and it represents the checkbox column present or not.
