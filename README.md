@@ -1,23 +1,17 @@
-##### Install
+## Installation
 
-###### With npm installed, run...
+### Install with npm
 
 ```
 $ npm install --save simple-react-data-grid
 ```
 
-##### Usage
+## Usage
 
     import DataGrid from 'simple-react-data-grid';
-    
-   <DataGrid data={ArrayOfObjects} metaData={ArrayConfig} styles={'styles')} />
-	
-    ------------------------------------------------------------------------------
-	data = json data to be rendered.
-	metaData = json data with values to be shown as column config.
-	
+    <DataGrid data={ArrayOfObjects} metaData={ArrayConfig} styles={'styles')} />	
 
-##### Example for data and metaData
+## Example for data and metaData
 
     data = [
       {
@@ -52,73 +46,75 @@ $ npm install --save simple-react-data-grid
       },
     ]
 
-###### Sample Metadata.
+### Sample Metadata:
+
     metaData = {
          headerConfig: [
-    {
-      'label': 'First Name',
-      'key': 'firstName',
-      'type': 'string',
-      'emptyCells': '',
-    },
-    {
-      'label': 'Last Name',
-      'key': 'lastName',
-      'type': 'string',
-      'emptyCells': '',
-    },
-    {
-      'label': 'Company',
-      'key': 'company',
-      'type': 'string',
-      'emptyCells': '',
-    },
-    {
-      'label': 'Employed',
-      'key': 'employed',
-      'type': 'string',
-      'disableFilter': true,
-      'emptyCells': '',
-    },
-    {
-      'label': 'Edit Information',
-      'key': 'edit',
-      'disableFilter': true,
-      'excludeFromExport': true,
-      'columnCustomComponent': 'checkBox',
-    },
-  ],
-  topDrawer: {
-    'pagination': false,
-    'globalSearch': true,
-    'clearButton': true,
-    'exportButton': true,
-    'totalRecords': false,
-  },
-  bottomDrawer: {
-    'pagination': true,
-    'globalSearch': true,
-    'clearButton': false,
-    'exportButton': false,
-    'totalRecords': true,
-  },
-  enableRowSelection: true,
-  enableAllRowSelection: true,
-  recordsPerPage: 25,
-  drawerPosition: 'top',
-  includeAllInGlobalFilter: false,
-  includeGlobalFilter: true,
-  exportFileName: `FileName-${new Date()}.csv`, // For Demo
-  loaderColor: '#a69fa8',
+	    {
+	      'label': 'First Name',
+	      'key': 'firstName',
+	      'type': 'string',
+	      'emptyCells': '',
+	    },
+	    {
+	      'label': 'Last Name',
+	      'key': 'lastName',
+	      'type': 'string',
+	      'emptyCells': '',
+	    },
+	    {
+	      'label': 'Company',
+	      'key': 'company',
+	      'type': 'string',
+	      'emptyCells': '',
+	    },
+	    {
+	      'label': 'Employed',
+	      'key': 'employed',
+	      'type': 'string',
+	      'disableFilter': true,
+	      'emptyCells': '',
+	    },
+	    {
+	      'label': 'Edit Information',
+	      'key': 'edit',
+	      'disableFilter': true,
+	      'excludeFromExport': true,
+	      'columnCustomComponent': 'checkBox',
+	    },
+	  ],
+	  topDrawer: {
+	    'pagination': false,
+	    'globalSearch': true,
+	    'clearButton': true,
+	    'exportButton': true,
+	    'totalRecords': false,
+	  },
+	  bottomDrawer: {
+	    'pagination': true,
+	    'globalSearch': true,
+	    'clearButton': false,
+	    'exportButton': false,
+	    'totalRecords': true,
+	  },
+	  enableRowSelection: true,
+	  enableAllRowSelection: true,
+	  recordsPerPage: 25,
+	  drawerPosition: 'top',
+	  includeAllInGlobalFilter: false,
+	  includeGlobalFilter: true,
+	  exportFileName: `FileName-${new Date()}.csv`, // For Demo
+	  loaderColor: '#a69fa8',
      }
 
-Information of features from 'simple-react-data-grid':
+## Props specification:
  data:- The array which contains column information.
         It contains array of objects of columns.
         Object represents the information of each row.
         Object properties example:-
          'firstName': key of that particular column.
          'Roseann': The information which is represented in that cell.
+ 
  metaData:- metaData object contains information form representation of 'simple-react-data. It is an object.
 		headerConfig: It is an array of objects of each column representation information.
 			Objects contains multiple properties listed below:
