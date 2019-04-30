@@ -108,25 +108,23 @@ $ npm install --save simple-react-data-grid
      }
 
 ## Props specification:
- data:- The array which contains column information.
-        It contains array of objects of columns.
-        Object represents the information of each row.
-        Object properties example:-
-         'firstName': key of that particular column.
-         'Roseann': The information which is represented in that cell.
- 
- metaData:- metaData object contains information form representation of 'simple-react-data. It is an object.
-		headerConfig: It is an array of objects of each column representation information.
-			Objects contains multiple properties listed below:
-                 'label': It represents the label of a particular column header.
-                 'key': It represents the key of that particular column which is used for mapping row data.
-                 'type': It represents the type of data to be present in that column. It should be 'string' or 'Number'.   
-                 'emptyCells': It represents the empty cell value. If data is not available in that particular cell of the column, the default value given for emptyCells will be pre-populated.  
-                 'disableFilter': Used to disable the filter for a particular column.
-                 'excludeFromExport': Will decide if a particular column should be removed from csv or not.
-          topDrawer: This object represents the information of which feature will present in the top drawer.
-          bottomDrawer: This object represents the information of which feature will present in the bottom drawer.
-          topDrawer and bottomDrawer contains some properties listed below:
+| props | dataType | Description |
+| ------| -------- | ---- |
+| data | Array | The array which contains column information. It contains array of objects of columns.Object represents the information of each row.Object properties|
+| metaData |Object | metaData object contains information form representation of 'simple-react-data. It is an object|
+
+#### metaData
+| metadata properties | dataType | description |
+|---- | ---- | ----|
+|headerConfig| Array | It is an array of objects of each column representation information.Objects contains multiple properties listed below|
+|label|String |It represents the label of a particular column header.|
+|key | String| It represents the key of that particular column which is used for mapping row data.|
+|type| String |It represents the type of data to be present in that column. It should be 'string' or 'Number'.|
+|emptyCells| String |It represents the empty cell value. If data is not available in that particular cell of the column, the default value given for emptyCells will be pre-populated.|
+|disableFilter| Boolean |Used to disable the filter for a particular column.|
+|excludeFromExport| Boolean |Will decide if a particular column should be removed from csv or not.|
+|topDrawer|Object|This object represents the information of which feature will present in the top drawer.|
+|bottomDrawer|Object|This object represents the information of which feature will present in the bottom drawer.topDrawer and bottomDrawer contains some properties listed below|
                  'pagination': It should be boolean & represent pagination is enabled or disabled.
                  'globalSearch': It should be boolean & represent globalSearch is enabled or disabled. 
                  'clearButton': It should be boolean & represent clearButton is enabled or disabled. 
@@ -141,6 +139,6 @@ $ npm install --save simple-react-data-grid
                  includeAllInGlobalFilter: It should be boolean and it represents global filter will be contained 'All' option or not.
                  includeGlobalFilter: It should be boolean and it represents the grid contained global filter or not.  
                  exportFileName: It will give the name to CVS download file.
-                 loaderColor: It will represent the color of all check loader.
- -----------------------------------------------------------------------------------------------------------------------------------------------
-getSelectedRow: It is call back function which is given to grid and this return the selected/checked row data.
+		 loaderColor: It will represent the color of all check loader.|
+		 |
+|getSelectedRow |It is call back function which is given to grid and this return the selected/checked row data.|
