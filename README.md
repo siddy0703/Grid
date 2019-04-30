@@ -114,7 +114,7 @@ $ npm install --save simple-react-data-grid
 | metaData |Object | metaData object contains information form representation of 'simple-react-data. It is an object|
 
 #### metaData
-| metadata properties | dataType | description |
+| metadata Properties | dataType | Description |
 |---- | ---- | ----|
 |headerConfig| Array | It is an array of objects of each column representation information.Objects contains multiple properties listed below|
 |label|String |It represents the label of a particular column header.|
@@ -125,20 +125,19 @@ $ npm install --save simple-react-data-grid
 |excludeFromExport| Boolean |Will decide if a particular column should be removed from csv or not.|
 |topDrawer|Object|This object represents the information of which feature will present in the top drawer.|
 |bottomDrawer|Object|This object represents the information of which feature will present in the bottom drawer.topDrawer and bottomDrawer contains some properties listed below|
-                 'pagination': It should be boolean & represent pagination is enabled or disabled.
-                 'globalSearch': It should be boolean & represent globalSearch is enabled or disabled. 
-                 'clearButton': It should be boolean & represent clearButton is enabled or disabled. 
-                 'exportButton': It should be boolean and its functionality is to export the grid data into CSV file, represent exportButton is enabled or disabled.    
-                 'totalRecords': It should be boolean & represent totalRecords is enabled or disabled.
-          Properties present in metadata object are listed below:
-                 enableRowSelection: It should be boolean and it represents the column header will contain all checked button or not.
-                                     Which select all row.
-                 enableAllRowSelection: It should be boolean and it represents the checkbox column present or not.
-                                     Which select each row individually. 
-                 recordsPerPage: It represents the number of records per page.
-                 includeAllInGlobalFilter: It should be boolean and it represents global filter will be contained 'All' option or not.
-                 includeGlobalFilter: It should be boolean and it represents the grid contained global filter or not.  
-                 exportFileName: It will give the name to CVS download file.
-		 loaderColor: It will represent the color of all check loader.|
-		 |
-|getSelectedRow |It is call back function which is given to grid and this return the selected/checked row data.|
+|enableRowSelection|boolean|It represents the column header will contain all checked button or not.|
+|enableAllRowSelection|boolean|It represents the checkbox column present or not.|
+|recordsPerPage|boolean|It represents the number of records per page.|
+|includeAllInGlobalFilter|boolean|It represents the column header will contain all checked button or not.|
+|includeGlobalFilter|boolean|It represents the grid contained global filter or not.|
+|exportFileName|String|It will give the name to CVS download file.|
+|loaderColor|String|It will represent the color of all check loader.|
+|getSelectedRow|function|It is call back function which is given to grid and this return the selected/checked row data.|
+
+| Options for top & bottom drawer | Description |
+| ---- | ----|
+| pagination | It should be boolean & represent pagination is enabled or disabled. |
+| globalSearch | It should be boolean & represent globalSearch is enabled or disabled. | 
+| clearButton | It should be boolean & represent clearButton is enabled or disabled. | 
+| exportButton | It should be boolean and its functionality is to export the grid data into CSV file, represent exportButton is enabled or disabled. | 
+| totalRecords | It should be boolean & represent totalRecords is enabled or disabled. |
