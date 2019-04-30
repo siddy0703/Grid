@@ -1,4 +1,4 @@
-#install
+## install
 
 With npm installed, run
 
@@ -6,7 +6,7 @@ With npm installed, run
 	$ npm i simple-react-data-grid
 ```
 
-##Usage
+## Usage
 
     import DataGrid from 'simple-react-data-grid';
     <DataGrid data={'data'}  metaData={'metaData'}  styles={'styles')} />
@@ -16,7 +16,7 @@ With npm installed, run
 	metaData = json data with values to be shown as column config.
 	
 
-##Example Input
+## Example Input
 
   Provide Metadata to configure the widget
 
