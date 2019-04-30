@@ -125,19 +125,19 @@ $ npm install --save simple-react-data-grid
 |excludeFromExport| Boolean |Will decide if a particular column should be removed from csv or not.|
 |topDrawer|Object|This object represents the information of which feature will present in the top drawer.|
 |bottomDrawer|Object|This object represents the information of which feature will present in the bottom drawer.topDrawer and bottomDrawer contains some properties listed below|
-|enableRowSelection|boolean|It represents the column header will contain all checked button or not.|
-|enableAllRowSelection|boolean|It represents the checkbox column present or not.|
-|recordsPerPage|boolean|It represents the number of records per page.|
-|includeAllInGlobalFilter|boolean|It represents the column header will contain all checked button or not.|
-|includeGlobalFilter|boolean|It represents the grid contained global filter or not.|
+|enableRowSelection|Boolean|It represents the column header will contain all checked button or not.|
+|enableAllRowSelection|Boolean|It represents the checkbox column present or not.|
+|recordsPerPage|Boolean|It represents the number of records per page.|
+|includeAllInGlobalFilter|Boolean|It represents the column header will contain all checked button or not.|
+|includeGlobalFilter|Boolean|It represents the grid contained global filter or not.|
 |exportFileName|String|It will give the name to CVS download file.|
 |loaderColor|String|It will represent the color of all check loader.|
 |getSelectedRow|function|It is call back function which is given to grid and this return the selected/checked row data.|
 
-| Options for top & bottom drawer | Description |
-| ---- | ----|
-| pagination | It should be boolean & represent pagination is enabled or disabled. |
-| globalSearch | It should be boolean & represent globalSearch is enabled or disabled. | 
-| clearButton | It should be boolean & represent clearButton is enabled or disabled. | 
-| exportButton | It should be boolean and its functionality is to export the grid data into CSV file, represent exportButton is enabled or disabled. | 
-| totalRecords | It should be boolean & represent totalRecords is enabled or disabled. |
+| Options for top & bottom drawer | dataType | Description |
+| ---- | ----| ----|
+| pagination |Boolean| It should be boolean & represent pagination is enabled or disabled. |
+| globalSearch |Boolean| It should be boolean & represent globalSearch is enabled or disabled. | 
+| clearButton |Boolean| It should be boolean & represent clearButton is enabled or disabled. | 
+| exportButton |Boolean| It should be boolean and its functionality is to export the grid data into CSV file, represent exportButton is enabled or disabled. | 
+| totalRecords |Boolean| It should be boolean & represent totalRecords is enabled or disabled. |
