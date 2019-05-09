@@ -4,9 +4,20 @@ import PropTypes from 'prop-types';
 
 import DataGrid from '../src';
 import { tableMetaData, getStyles, tableData } from './Data';
+import LiveConfig from './LiveConfig';
 
 const EditButton = ({ rowData }) => (
-  <div><button onClick={() => { alert(`First Name: ${rowData.firstName}, Last Name: ${rowData.lastName}`); }}>Edit</button></div>
+  <div>
+    <button
+      onClick={
+        () => {
+          alert(`First Name: ${rowData.firstName}, Last Name: ${rowData.lastName}`);
+        }
+      }
+    >
+      Edit
+    </button>
+  </div>
 );
 
 const HelloMessage = () => (
@@ -25,6 +36,7 @@ const formatMetaDataRowCustomComponent = (metaData) => {
   });
   return { ...metaData, 'headerConfig': formattedHeaderConfig };
 };
+
 const formatMetaDataHeaderCustomComponent = (metaData) => {
   const custom = cloneDeep(metaData);
   const formattedHeaderConfig = custom.headerConfig.map((dataObj) => {
@@ -48,39 +60,49 @@ class SplashPage extends Component {
     };
     this.getSelectedRow = this.getSelectedRow.bind(this);
     this.formatTableData = this.formatTableData.bind(this);
+    this.onChangeMetaData = this.onChangeMetaData.bind(this);
   }
   componentDidMount() {
     this.formatTableData();
   }
 
   formatTableData() {
-    let temporaryTableData = this.state.tableData.map((tableDataObject) => {
-      return { ...tableDataObject, isChecked: false };
-    });
+    const temporaryTableData = this.state.tableData.map(tableDataObject => ({ ...tableDataObject, isChecked: false }));
     this.setState({
       tableData: temporaryTableData,
     });
   }
 
   getSelectedRow(selectedRow) {
-   const temporaryTableData = this.state.tableData.map((tableDataObject) => {
-     let temporaryObject = tableDataObject;
-       selectedRow.forEach((selectedRowObject) => {
-         if (selectedRowObject.id === tableDataObject.id) {
-           temporaryObject = selectedRowObject;
+    const temporaryTableData = this.state.tableData.map((tableDataObject) => {
+      let temporaryObject = tableDataObject;
+      selectedRow.forEach((selectedRowObject) => {
+        if (selectedRowObject.id === tableDataObject.id) {
+          temporaryObject = selectedRowObject;
         }
       });
-     return temporaryObject;
+      return temporaryObject;
     });
     this.setState({
       tableData: temporaryTableData,
     });
   }
+
+  onChangeMetaData(updatedMetaData) {
+    this.setState({
+      metaData: updatedMetaData,
+    });
+  }
+
   render() {
     const formattedMetaDataRowCustomComponent = formatMetaDataRowCustomComponent(this.state.metaData);
     const formattedMetaDataHeaderCustomComponent = formatMetaDataHeaderCustomComponent(formattedMetaDataRowCustomComponent);
     return (
-      <div id="badge">
+      <div id="badge" style={{ display: 'flex' }}>
+        <LiveConfig
+          metaData={this.state.metaData}
+          onChangeMetaData={this.onChangeMetaData}
+        />
         <DataGrid
           data={this.state.tableData}
           metaData={formattedMetaDataHeaderCustomComponent}
