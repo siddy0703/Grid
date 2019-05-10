@@ -141,3 +141,9 @@ $ npm install --save simple-react-data-grid
 | clearButton |Boolean| It should be boolean & represent clearButton is enabled or disabled. | 
 | exportButton |Boolean| It should be boolean and its functionality is to export the grid data into CSV file, represent exportButton is enabled or disabled. | 
 | totalRecords |Boolean| It should be boolean & represent totalRecords is enabled or disabled. |
+
+
+![](https://gph.is/g/4bbzoy4)
+
+## Live Demo
+A [live Demo](https://pepcus.github.io/react-simple-data-grid/) is hosted on gh-pages.
