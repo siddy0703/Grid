@@ -143,7 +143,7 @@ $ npm install --save simple-react-data-grid
 | totalRecords |Boolean| It should be boolean & represent totalRecords is enabled or disabled. |
 
 
-![](https://gph.is/g/4bbzoy4)
+![](https://media.giphy.com/media/Lq7516Et4N8d2gVHYP/giphy.gif)
 
 ## Live Demo
 A [live Demo](https://pepcus.github.io/react-simple-data-grid/) is hosted on gh-pages.
