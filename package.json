@@ -1,6 +1,6 @@
 {
   "name": "simple-react-data-grid",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "description": "A simple datagrid",
   "main": "build/index.js",
   "dependencies": {
