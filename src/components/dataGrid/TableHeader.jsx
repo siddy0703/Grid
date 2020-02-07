@@ -63,6 +63,7 @@ class TableHeader extends Component {
         </span>
       );
     }
+    return null;
   }
 
   getFilterValue(columnName) {
@@ -82,6 +83,8 @@ class TableHeader extends Component {
           getSortIcon={this.getSortIcon}
           onFilterChange={this.props.onFilterChange}
           getFilterValue={this.getFilterValue}
+          onResizeColumnWidth={this.props.onResizeColumnWidth}
+          resizeColumnWidth={this.props.currentMetaData.resizeColumnWidth}
         />
       ));
   }
@@ -99,6 +102,8 @@ class TableHeader extends Component {
 
 TableHeader.propTypes = {
   handleAllCheckBoxChange: PropTypes.func,
+  handleAllCheckBox: PropTypes.func,
+  onResizeColumnWidth: PropTypes.func,
   allCheckBox: PropTypes.bool,
   setSortObject: PropTypes.func.isRequired,
   currentMetaData: PropTypes.object,
@@ -109,7 +114,9 @@ TableHeader.propTypes = {
 };
 
 TableHeader.defaultProps = {
+  handleAllCheckBoxChange: () => {},
   handleAllCheckBox: () => {},
+  onResizeColumnWidth: () => {},
   allCheckBox: false,
   currentMetaData: [],
   appliedFilter: {},
