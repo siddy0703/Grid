@@ -3636,6 +3636,7 @@ export const tableMetaData = () => ({
       'disableFilter': true,
       'excludeFromExport': true,
       'columnCustomComponent': 'checkBox',
+      'isLastColumn': true,
     },
   ],
   topDrawer: {
@@ -3652,6 +3653,7 @@ export const tableMetaData = () => ({
     'exportButton': false,
     'totalRecords': true,
   },
+  resizeColumnWidth: true,
   enableRowSelection: true,
   enableAllRowSelection: true,
   recordsPerPage: 25,
