@@ -134,6 +134,7 @@ class Table extends Component {
         currentMetaData={this.state.currentMetaData}
         styles={this.props.styles}
         customWidth={this.state.customWidth}
+        handleRowEdit={this.props.handleRowEdit}
       />
     );
   }
@@ -254,12 +255,12 @@ class Table extends Component {
     );
   }
 
-  onResizeColumnWidth(id, width){
-    this.setState((prevState) => ({
+  onResizeColumnWidth(id, width) {
+    this.setState(prevState => ({
       customWidth: {
         ...prevState.customWidth,
         [id]: width,
-      }
+      },
     }));
   }
 

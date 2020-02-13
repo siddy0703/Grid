@@ -9,9 +9,31 @@ import '../.././datagrid.css';
 * */
 
 class RowCell extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onChange = this.onChange.bind(this);
+  }
+
+  onChange(event) {
+    const { gridId, cellId } = this.props;
+    this.props.handleRowEdit(gridId, cellId, event);
+  }
 
   render() {
-    const { children, title, styles, cellId } = this.props;
+    const { children, title, styles, cellId, editable } = this.props;
+    if (editable) {
+      return (
+        <div className={`row cell__${cellId}`} style={{ width: `${styles.width}px` }}>
+          <input
+            className="table-cell"
+            value={title}
+            style={styles.gridTableCell}
+            onChange={this.onChange}
+          />
+        </div>
+      );
+    }
     return (
       <div className={`row cell__${cellId}`} style={{ width: `${styles.width}px` }}>
         <div
@@ -28,6 +50,7 @@ class RowCell extends Component {
 
 RowCell.propTypes = {
   cellId: PropTypes.string,
+  editable: PropTypes.bool,
   styles: PropTypes.object,
   children: PropTypes.node,
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -35,6 +58,7 @@ RowCell.propTypes = {
 
 RowCell.defaultProps = {
   styles: {},
+  editable: false,
   children: '',
   title: '',
   cellId: '',

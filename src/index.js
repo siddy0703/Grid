@@ -73,6 +73,7 @@ class DataGrid extends Component {
         metaData={this.props.metaData}
         styles={this.props.styles}
         onClickAllExport={this.props.onClickAllExport}
+        handleRowEdit={this.props.handleRowEdit}
       />
     );
   }

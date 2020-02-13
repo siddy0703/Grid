@@ -16,18 +16,22 @@ class TableBody extends Component {
   }
 
   renderTableBody({ tableData, currentMetaData, styles, customWidth }) {
+    const { handleRowEdit } = this.props;
+
     if (isEmpty(tableData)) {
       return null;
     }
-    return tableData.map(rowData => {
+    return tableData.map((rowData, index) => {
       return (
         <Row
           handleSingleCheckBoxChange={this.props.handleSingleCheckBoxChange}
           data={rowData}
           currentMetaData={currentMetaData}
           styles={styles}
-          key={rowData.id}
+          key={rowData.gridId}
+          gridId={rowData.gridId}
           customWidth={customWidth}
+          handleRowEdit={handleRowEdit}
         />
       );
     });

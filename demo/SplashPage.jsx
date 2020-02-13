@@ -77,7 +77,7 @@ class SplashPage extends Component {
     const temporaryTableData = this.state.tableData.map((tableDataObject) => {
       let temporaryObject = tableDataObject;
       selectedRow.forEach((selectedRowObject) => {
-        if (selectedRowObject.id === tableDataObject.id) {
+        if (selectedRowObject.gridId === tableDataObject.gridId) {
           temporaryObject = selectedRowObject;
         }
       });
@@ -108,6 +108,9 @@ class SplashPage extends Component {
           metaData={formattedMetaDataHeaderCustomComponent}
           styles={getStyles()}
           getSelectedRow={this.getSelectedRow}
+          handleRowEdit={(id, cell, event) => {
+            console.log(' id, cell, event-- ', id, cell, event.target.value);
+          }}
         />
       </div>
     );

@@ -13,6 +13,9 @@ class Row extends Component {
     this.renderRows = this.renderRows.bind(this);
   }
   renderRows({ data, currentMetaData, styles, customWidth }) {
+    const editable = currentMetaData.isEditable;
+    const { handleRowEdit, gridId } = this.props;
+
     return (
       <div className="table-row" style={styles.gridTableRow}>
         {currentMetaData.headerConfig.map((columnMetaData) => {
@@ -28,6 +31,9 @@ class Row extends Component {
               styles={styles}
               key={columnMetaData.key}
               cellId={columnMetaData.key}
+              editable={editable}
+              handleRowEdit={handleRowEdit}
+              gridId={gridId}
             >
               <CustomComponent rowData={data} />
             </RowCell>
@@ -39,12 +45,15 @@ class Row extends Component {
               key={columnMetaData.key}
               cellId={columnMetaData.key}
               title={data[columnMetaData.key]}
+              editable={editable}
+              handleRowEdit={handleRowEdit}
+              gridId={gridId}
             >
               {data[columnMetaData.key]}
               <input
                 type="checkbox"
                 onChange={(e) => this.props.handleSingleCheckBoxChange(e, data)}
-                name={data.id}
+                name={data.gridId}
                 checked={data.isChecked ? 'checked' : ''}
               />
             </RowCell>
@@ -56,6 +65,9 @@ class Row extends Component {
             key={columnMetaData.key}
             cellId={columnMetaData.key}
             title={data[columnMetaData.key]}
+            editable={editable}
+            handleRowEdit={handleRowEdit}
+            gridId={gridId}
           >
             {data[columnMetaData.key]}
           </RowCell>

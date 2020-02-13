@@ -4,7 +4,7 @@ import orderBy from 'lodash/orderBy';
 export const addUniqueKey = (data) => {
   let id = 0;
   data.forEach((obj) => {
-    obj.id = id.toString();
+    obj.gridId = id.toString();
     id += 1;
   });
   return data;

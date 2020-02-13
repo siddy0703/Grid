@@ -11,6 +11,7 @@ class HeaderColumn extends React.Component {
     this.MyRef = React.createRef();
     this.state = {};
     this.onResize = this.onResize.bind(this);
+    this.onResizeStop = this.onResizeStop.bind(this);
     this.renderFirstDiv = this.renderFirstDiv.bind(this);
     this.renderSecondDiv = this.renderSecondDiv.bind(this);
   }
@@ -80,14 +81,21 @@ class HeaderColumn extends React.Component {
       </div>
     );
   }
-  onResize(event, { element, size }) {
+
+  onResize(event, { size }) {
     if (!this.props.columnMetaData.isLastColumn) {
       this.setState({
         width: size.width,
       });
     }
-    this.props.onResizeColumnWidth(this.props.columnMetaData.key, size.width);
   }
+
+  onResizeStop() {
+    const { width } = this.state;
+
+    this.props.onResizeColumnWidth(this.props.columnMetaData.key, width);
+  }
+
   render() {
     const {
       enableRowSelection,
@@ -101,6 +109,7 @@ class HeaderColumn extends React.Component {
         return (
           <Resizable
             onResize={this.onResize}
+            onResizeStop={this.onResizeStop}
             width={this.state.width ? this.state.width : window.innerWidth}
             height={window.innerHeight}
           >
@@ -118,6 +127,7 @@ class HeaderColumn extends React.Component {
       return (
         <Resizable
           onResize={this.onResize}
+          onResizeStop={this.onResizeStop}
           width={this.state.width ? this.state.width : window.innerWidth}
           height={window.innerHeight}
         >

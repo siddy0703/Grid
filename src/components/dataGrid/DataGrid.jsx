@@ -32,6 +32,7 @@ class DataGridSection extends Component {
             metaData={formattedMetaData(this.props.metaData)}
             styles={this.props.styles}
             onClickAllExport={this.props.onClickAllExport}
+            handleRowEdit={this.props.handleRowEdit}
           />
         </div>
       </div>
