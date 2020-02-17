@@ -256,7 +256,6 @@ body{
 .table-row {
     display: flex;
     width: 100%;
-    border-bottom: 1px solid #086770;
 }
 .row {
     overflow: hidden;

@@ -44,7 +44,7 @@ export const paginatedData = ({ currentData, recordsPerPage, currentPage }) => {
   return [];
 };
 
-export const getSortedData = ({ columnName, columnType, sortOrder, data, emptyCells }) => {
+export const getSortedData = ({ columnName, columnType = 'string', sortOrder, data, emptyCells }) => {
   let dataCopy = cloneDeep(data);
   if (columnType === 'Number') {
     let numericValues = [];
