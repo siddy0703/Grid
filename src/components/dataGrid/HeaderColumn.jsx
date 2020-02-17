@@ -25,21 +25,29 @@ class HeaderColumn extends React.Component {
 
   renderFirstDiv() {
     let className = '';
-    if (this.props.columnMetaData.isLastColumn) {
+    const {
+      columnType,
+      disableFilter,
+      headerCustomComponent,
+      isLastColumn,
+      key,
+      label
+    } = this.props.columnMetaData;
+    if (isLastColumn) {
       className = 'lastColumn';
     }
     return (
       <div
-        className={`header-column cell__${this.props.columnMetaData.key} ${className}`}
+        className={`header-column cell__${key} ${className}`}
         ref={this.MyRef}
-        style={this.props.columnMetaData.isLastColumn ? { width: `${this.state.width}px` } : { width: `${this.state.width}px` }}
+        style={isLastColumn ? { width: `${this.state.width}px` } : { width: `${this.state.width}px` }}
       >
         <div
-          title={this.props.columnMetaData.label}
+          title={label}
           className="table-heading"
-          onClick={e => this.props.onClickSort(this.props.columnMetaData.key, e)}
-          id={this.props.columnMetaData.key}
-        >{this.props.getSortIcon()}{this.props.columnMetaData.label}
+          onClick={e => this.props.onClickSort(key, disableFilter, columnType, e)}
+          id={key}
+        >{this.props.getSortIcon()}{label}
           <input
             type="checkbox"
             onChange={this.props.handleAllCheckBoxChange}
@@ -52,31 +60,39 @@ class HeaderColumn extends React.Component {
 
   renderSecondDiv() {
     let className = '';
-    if (this.props.columnMetaData.isLastColumn) {
+    const {
+      columnType,
+      disableFilter,
+      headerCustomComponent,
+      isLastColumn,
+      key,
+      label
+    } = this.props.columnMetaData;
+    if (isLastColumn) {
       className = 'lastColumn';
     }
     return (
       <div
-        className={`header-column cell__${this.props.columnMetaData.key} ${className}`}
+        className={`header-column cell__${key} ${className}`}
         ref={this.MyRef}
-        style={this.props.columnMetaData.isLastColumn ? { width: `${this.state.width}px` } : { width: `${this.state.width}px` }}
+        style={isLastColumn ? { width: `${this.state.width}px` } : { width: `${this.state.width}px` }}
       >
         <div
           title={this.props.columnMetaData.label}
           className="table-heading"
-          onClick={e => this.props.onClickSort(this.props.columnMetaData.key, this.props.columnMetaData.disableFilter, e)}
-          id={this.props.columnMetaData.key}
-        >{this.props.getSortIcon(this.props.columnMetaData.key)}{this.props.columnMetaData.label}
+          onClick={e => this.props.onClickSort(key, disableFilter, columnType, e)}
+          id={key}
+        >{this.props.getSortIcon(key)}{label}
         </div>
         <ColumnFilter
-          disableFilter={this.props.columnMetaData.disableFilter}
-          selectedColumn={this.props.columnMetaData.key}
+          disableFilter={disableFilter}
+          selectedColumn={key}
           onChange={this.props.onFilterChange}
-          value={this.props.getFilterValue(this.props.columnMetaData.key)}
-          key={this.props.columnMetaData.key}
+          value={this.props.getFilterValue(key)}
+          key={key}
         />
         <HeaderCustomComponent
-          headerCustomComponent={this.props.columnMetaData.headerCustomComponent}
+          headerCustomComponent={headerCustomComponent}
         />
       </div>
     );
