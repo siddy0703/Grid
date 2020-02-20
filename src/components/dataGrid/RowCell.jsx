@@ -23,6 +23,21 @@ class RowCell extends Component {
   render() {
     const { children, title, styles, cellId, editable } = this.props;
     if (editable) {
+      if (children && Array.isArray(children)) {
+        if (children[1] && children[1].props.type === 'checkbox') {
+          return (
+            <div className={`row cell__${cellId}`} style={{ width: `${styles.width}px` }}>
+              <div
+                className="table-cell"
+                title={title}
+                style={styles.gridTableCell}
+              >
+                {children}
+              </div>
+            </div>
+          );
+        }
+      }
       return (
         <div className={`row cell__${cellId}`} style={{ width: `${styles.width}px` }}>
           <input
