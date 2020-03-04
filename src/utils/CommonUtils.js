@@ -80,8 +80,9 @@ export const getSortedData = ({ columnName, columnType = 'string', sortOrder, da
         stringValues.push(object);
       }
     });
+    const lowerCaseColumnValue = obj => obj[columnName].toLowerCase();
     if (!isEmpty(stringValues)) {
-      stringValues = orderBy(stringValues, columnName, sortOrder);
+      stringValues = orderBy(stringValues, [lowerCaseColumnValue], sortOrder);
     }
     if (sortOrder === 'asc') {
       dataCopy = emptyValues.concat(stringValues);
