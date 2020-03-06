@@ -81,7 +81,13 @@ export const getSortedData = ({ columnName, columnType = 'string', sortOrder, da
       }
     });
     // This will replace the current string with lower case and trimmed spaces.
-    const lowerCaseTrimmedColumnValue = obj => obj[columnName].toLowerCase().replace(/\s+/g, '');
+    const lowerCaseTrimmedColumnValue = (obj) => {
+      // This will check if the value is not a number in order to avoid Number.toLowerCase errors.
+      if (isNaN(obj[columnName])) {
+        return obj[columnName].toLowerCase().replace(/\s+/g, '')
+      }
+      return obj[columnName];
+    };
     if (!isEmpty(stringValues)) {
       stringValues = orderBy(stringValues, [lowerCaseTrimmedColumnValue], sortOrder);
     }
