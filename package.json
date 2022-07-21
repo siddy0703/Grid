@@ -1,5 +1,5 @@
 {
-  "name": "react-simple-data-grid",
+  "name": "@pepcus/react-simple-data-grid",
   "version": "2.8.9",
   "description": "A simple datagrid",
   "main": "build/index.js",
