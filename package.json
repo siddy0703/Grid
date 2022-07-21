@@ -44,5 +44,8 @@
     "react"
   ],
   "author": "Pepcus UI",
-  "license": "ISC"
+  "license": "ISC",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@Pepcus"
+  }
 }
