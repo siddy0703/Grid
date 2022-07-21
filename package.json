@@ -46,7 +46,7 @@
   "author": "Pepcus",
   "license": "ISC",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com/@pepcus"
   },
   "repository":{
     "url": "https://github.com/Pepcus/react-simple-data-grid"
