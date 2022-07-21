@@ -43,9 +43,12 @@
   "keywords": [
     "react"
   ],
-  "author": "Pepcus UI",
+  "author": "Pepcus",
   "license": "ISC",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@Pepcus"
+  },
+  "repository":{
+    "url": "https://github.com/Pepcus/react-simple-data-grid"
   }
 }
