@@ -1,6 +1,6 @@
 {
   "name": "@pepcus/react-simple-data-grid",
-  "version": "2.8.9",
+  "version": "2.9.0",
   "description": "A simple datagrid",
   "main": "build/index.js",
   "dependencies": {
@@ -50,5 +50,6 @@
   },
   "repository":{
     "url": "https://github.com/Pepcus/react-simple-data-grid"
-  }
+  },
+  "files": ["build"]
 }
