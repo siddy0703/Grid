@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import DataGrid from '../src';
 import { tableMetaData, getStyles, tableData } from './Data';
-import LiveConfig from './LiveConfig';
 
 const EditButton = ({ rowData }) => (
   <div>
@@ -60,7 +59,6 @@ class SplashPage extends Component {
     };
     this.getSelectedRow = this.getSelectedRow.bind(this);
     this.formatTableData = this.formatTableData.bind(this);
-    this.onChangeMetaData = this.onChangeMetaData.bind(this);
   }
   componentDidMount() {
     this.formatTableData();
@@ -88,21 +86,11 @@ class SplashPage extends Component {
     });
   }
 
-  onChangeMetaData(updatedMetaData) {
-    this.setState({
-      metaData: updatedMetaData,
-    });
-  }
-
   render() {
     const formattedMetaDataRowCustomComponent = formatMetaDataRowCustomComponent(this.state.metaData);
     const formattedMetaDataHeaderCustomComponent = formatMetaDataHeaderCustomComponent(formattedMetaDataRowCustomComponent);
     return (
       <div id="badge" style={{ display: 'flex' }}>
-        <LiveConfig
-          metaData={this.state.metaData}
-          onChangeMetaData={this.onChangeMetaData}
-        />
         <DataGrid
           data={this.state.tableData}
           metaData={formattedMetaDataHeaderCustomComponent}

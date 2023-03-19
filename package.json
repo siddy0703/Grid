@@ -48,8 +48,10 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@pepcus"
   },
-  "repository":{
+  "repository": {
     "url": "https://github.com/Pepcus/react-simple-data-grid"
   },
-  "files": ["build"]
+  "files": [
+    "build"
+  ]
 }
